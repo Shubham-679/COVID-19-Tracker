@@ -4,6 +4,10 @@ import { getLineChart, getBarChart } from '../utility';
 
 const Charts = ({data: { deaths, confirmed, recovered }, dailyData, country}) => {
     
+
+
+
+    
   const lineChart = dailyData.length ? getLineChart(dailyData) : null;
   const barChart = confirmed ? getBarChart(deaths, confirmed, recovered, country) : null;
     

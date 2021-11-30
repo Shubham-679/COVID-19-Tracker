@@ -14,6 +14,8 @@ const Cards = ({ data: { deaths, confirmed, recovered, lastUpdate }, country }) 
 
   const active = confirmed["value"] - recovered["value"] - deaths["value"];
   
+
+  
   let cardDetails = [
     {
       style: styles.infected,
