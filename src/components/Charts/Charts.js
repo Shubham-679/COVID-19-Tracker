@@ -7,6 +7,10 @@ const Charts = ({data: { deaths, confirmed, recovered }, dailyData, country, mon
   const barChart = confirmed ? getBarChart(deaths, confirmed, recovered, country) : null;
 //   const lineChartForMonth = data ? getLineChart(data) : null;
     
+
+
+
+
     return(
         <div className={styles.container} style={{ height: '200px'}} >
             {/* {data && data.length > 0 && lineChartForMonth} */}
