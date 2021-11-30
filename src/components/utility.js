@@ -1,6 +1,10 @@
 import numeral from 'numeral';
 import moment from 'moment';
 import { Line, Bar } from "react-chartjs-2";
+import { Card, CardContent, Typography, Grid } from "@material-ui/core";
+import styles from "./Cards/Cards.module.css";
+import CountUp from "react-countup";
+import cx from "classnames";
 
 export const getNumberFormat = (value) => {
     return numeral(value).format(`0,0.[00]a`).toUpperCase();
@@ -67,5 +71,21 @@ export const getBarChart = (deaths, confirmed, recovered, country) => {
                 title: { display: true, text: `Current state in ${country}` },
             }}
         />
+    )
+}
+
+export const getCards = (detail, index, lastUpdate, country) => {
+    return (
+        <Grid item component={Card} xs={12} md={2} className={cx(styles.card, detail.style)} key={index} style={{ margin: "0px 23.675px", padding: "12px" }}>
+            <CardContent>
+              <Typography color="textPrimary" variant="h5" gutterBottom><b>{detail.text}</b></Typography>
+              <Typography variant="h4">{detail.formattedValue}</Typography>
+              <Typography color="textSecondary" variant="body2" > <CountUp start={0} end={detail.value} duration={2} separator="," /> </Typography>
+              <Typography color="textPrimary"> Last Update : </Typography>
+              <Typography color="textSecondary" variant="body2"> {moment(lastUpdate).calendar()} </Typography>
+              <Typography variant="body2">{detail.bottomText}</Typography>
+              <Typography color="textPrimary"> {country} </Typography>
+            </CardContent>
+          </Grid>
     )
 }

@@ -5,9 +5,9 @@ import { setData, setDailyData, setCountryList } from './actions';
 const url = 'https://covid19.mathdro.id/api';
 
 export function* fetchData() {
-    let newUrl = url;
+    
     yield takeEvery('FETCH_DATA', function* ({ country }) {
-        if(country) newUrl = `${url}/countries/${country}`;
+        const newUrl = country === 'global' || !country ? url : `${url}/countries/${country}`; 
         try {
             const { data } = yield call(axios.get, [newUrl]);
             yield put(setData(data));    

@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+.navLink {
+    text-decoration: none;
+    list-style: none;
+    list-style-position: inside;
+    cursor: pointer;
+    padding: 16px;
+  }
